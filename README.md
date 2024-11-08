@@ -1,4 +1,3 @@
-#Portfolio
 
 Welcome to my digital home! This portfolio is a reflection of my journey as a developer, showcasing the skills, projects, and experiences that define me. Built with passion, a sprinkle of creativity, and a blend of modern technologies, this site brings together everything I've learned and accomplished so far.
 
