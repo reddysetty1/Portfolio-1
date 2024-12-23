@@ -5,9 +5,9 @@ import Section from './components/Section';
 import Navbar from './components/Navbar';
 import Timeline from './components/Timeline';
 import SkillCard from './components/SkillCard';
-import arvr1 from '../src/images/arvr1.webp';
-import gesture1 from '../src/images/gesture1.webp';
-import vehicle1 from '../src/images/vehicle1.webp';
+import datics from '../src/images/datics.png';
+import infosys from '../src/images/infosys.png';
+import smc from '../src/images/smc.png';
 
 function App() {
   const [name, setName] = useState('');
@@ -46,20 +46,23 @@ function App() {
     {
       role: "Software Developer",
       company: "Datics Inc",
-      period: "Aug, 2024 - Present",
-      description: "Experienced Software Developer with expertise in Java 8, Spring Boot, Hibernate, and React.js. Led the development of an e-commerce platform, optimizing real-time inventory management and payment processing. Enhanced performance with React optimizations and PostgreSQL tuning. Streamlined deployment workflows using Jenkins and Docker, reducing deployment times by 30%."
+      period: "Aug, 2024 - Dec, 2024",
+      description: "Experienced Software Developer with expertise in Java 8, Spring Boot, Hibernate, and React.js. Led the development of an e-commerce platform, optimizing real-time inventory management and payment processing. Enhanced performance with React optimizations and PostgreSQL tuning. Streamlined deployment workflows using Jenkins and Docker, reducing deployment times by 30%.",
+      image: `${datics}`,
     },
     {
       role: "Full Stack Developer",
       company: "Infosys Ltd",
       period: "Aug, 2021 - Jan, 2023",
-      description: "Full Stack Developer skilled in Angular, Node.js, TypeScript, Java 8, and Spring Boot. Built interactive dashboards and landing pages, driving user engagement. Developed RESTful APIs and a real-time customer feedback system. Optimized MySQL data storage and AWS deployments for scalability. Streamlined CI/CD with Docker, Jenkins, and Git, reducing deployment times and ensuring release reliability."
+      description: "Full Stack Developer skilled in Angular, Node.js, TypeScript, Java 8, and Spring Boot. Built interactive dashboards and landing pages, driving user engagement. Developed RESTful APIs and a real-time customer feedback system. Optimized MySQL data storage and AWS deployments for scalability. Streamlined CI/CD with Docker, Jenkins, and Git, reducing deployment times and ensuring release reliability.",
+      image: `${infosys}`,
     },
     {
       role: "Java Full Stack Developer",
       company: "Sri Maharshi Consultancies",
       period: "Jul, 2019 - Jul, 2021",
-      description: "In the LENDING MASTER project, built a loan tracking system for microfinance firms with Java, Spring Boot, MySQL, Angular, and React. Automated tasks with PL/SQL, and managed projects in Agile using JIRA. Optimized build and deployment with Maven and Jenkins, reducing delivery time and production errors."
+      description: "In the LENDING MASTER project, built a loan tracking system for microfinance firms with Java, Spring Boot, MySQL, Angular, and React. Automated tasks with PL/SQL, and managed projects in Agile using JIRA. Optimized build and deployment with Maven and Jenkins, reducing delivery time and production errors.",
+      image: `${smc}`,
     }
   ];
 
@@ -181,40 +184,75 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {[
             {
-              title: "Vehicle Safe Park System",
-              description: "ANPR Vehicle Log System using Java, OpenCV, JSP, MySQL",
-              image: `${vehicle1}`,
+              title: "Vehicle Parking System",
+              problem: "Inefficient manual vehicle log management in high-traffic areas.",
+              solution: "Designed a high-accuracy ANPR system to streamline vehicle entry logging, combining advanced recognition algorithms, responsive interfaces, and optimized backend performance for real-time data handling. The system’s intuitive design and seamless database integration make it stand out from conventional solutions.",
+              outcome:"Boosted user satisfaction by 30% and ensured faster, error-free data retrieval for analysis.",
+              technologies: ["Java", "JSP", "CSS", "Bootstrap", "MySQL", "OpenCV"],
               link: "https://github.com/chinmayee86/VSAGS"
             },
             {
               title: "AR Classroom Experience",
-              description: "Digital Classroom App with ORB Recognition using OpenCV",
-              image: `${arvr1}`,
+              problem: "Traditional classroom methods lacked interactive and immersive learning experiences.",
+              solution: "Developed an AR-based digital classroom where instructors can stream real-time videos through custom picture cards. Added a feature for users to integrate cartoon elements for an interactive, fun learning environment.",
+              outcome:"Delivered a unique, interactive platform that enriched the learning experience by blending AR technology with innovative teaching methods.",
+              technologies: ["Python", "ORB based Image Recognition", "React"],
               link: "https://github.com/chinmayee86/ARFYP"
             },
             {
               title: "Hand Gesture Calculator",
-              description: "Hand Gesture-Based Calculator with Mediapipe, and OpenCV Integration",
-              image: `${gesture1}`,
+              problem: "Users often face limitations with traditional input methods for calculators, requiring physical interaction.",
+              solution: "Developed a hand gesture recognition system using Python and MediaPipe, enabling real-time operation of a virtual calculator. Integrated advanced filtering techniques to minimize false positives, ensuring smooth and reliable gesture-based control.",
+              outcome:"Enabled a hands-free, intuitive calculator with improved accessibility and a seamless user experience, eliminating the need for physical input.",
+              technologies: ["Python", "Mediapipe"],
               link: "https://github.com/chinmayee86/HGCVC"
             }
           ].map((project, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-lg shadow-xl fade-in">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-65 blue-lg object-cover transform group-hover:scale-110 group-hover:blur-0 transition-transform duration-500 "
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-lg shadow-xl fade-in min-h-[200px] bg-white p-6 flex flex-col justify-start"
+              >
+                <h3 className="text-xl font-bold text-black flex items-center gap-2 mb-2">
                   {project.title}
-                  <a href={project.link} className="hover:text-indigo-600 transition-colors">
-              <ExternalLink size={24} />
-            </a>
+                  {project.link && (
+                    <a href={project.link} className="text-indigo-600 hover:text-indigo-800 transition-colors">
+                      <ExternalLink size={24} />
+                    </a>
+                  )}
                 </h3>
-                <p className="text-gray-200">{project.description}</p>
+                
+                 {/* Problem Section */}
+                  <div className="mb-4">
+                    <p className="text-gray-600 font-semibold">Problem</p>
+                    <p className="text-gray-800">{project.problem}</p>
+                  </div>
+
+                  {/* Solution Section */}
+                  <div className="mb-4">
+                    <p className="text-gray-600 font-semibold">Solution</p>
+                    <p className="text-gray-800">{project.solution}</p>
+                  </div>
+
+                  {/* Outcome Section */}
+                  <div className="mb-4">
+                    <p className="text-gray-600 font-semibold">Outcome</p>
+                    <p className="text-gray-800">{project.outcome}</p>
+                  </div>
+
+
+
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+
           ))}
         </div>
       </Section>
